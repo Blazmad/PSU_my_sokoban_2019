@@ -28,17 +28,18 @@ player_t player_position(char **array)
     return (pos_player);
 }
 
-void display_map(char **la_bitasse, char *buffer)
+void display_map(char **map, char *buffer)
 {
     initscr();
     keypad(stdscr, TRUE);
+    curs_set(0);
     while (1) {
         clear();
         for (int i = 0; i < nb_lines(buffer); i++) {
-            printw(la_bitasse[i]);
+            printw(map[i]);
             printw("\n");
         }
-        la_bitasse = move_player(la_bitasse);
+        map = move_player(map);
         refresh();
     }
     endwin();
@@ -58,10 +59,9 @@ int main(int ac, char **av)
 
     if (ac != 2)
         return (84);
-    if (ac == 2) {
+    if (ac == 2)
         if (av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
             help();
-    }
     if (open_read_file(av[1]) == NULL)
         return (84);
     buffer = open_read_file(av[1]);

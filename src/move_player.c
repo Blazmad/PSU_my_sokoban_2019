@@ -76,7 +76,6 @@ char **move_player_right(char **array)
         array[pos.i][pos.j + 1] = 'P';
         array[pos.i][pos.j] = ' ';
     }
-
     return (array);
 }
 
