@@ -15,51 +15,41 @@ void free_all(char *buffer, char **array)
     free(buffer);
 }
 
-int check_file_error(int fd, int status, int size)
+player_t player_position(char **array)
 {
-    if (fd == -1)
-        return (84);
-    if (size == 0)
-        return (84);
-    if (status == -1)
-        return (84);
-    if (status < size)
-        return (84);
-    if (status == size)
-        return (0);
-    return (0);
+    player_t pos_player = {0, 0};
+
+    for (int i = 0; array[i]; i++)
+        for (int j = 0; array[i][j]; j++)
+            if (array[i][j] == 'P') {
+                pos_player.i = i;
+                pos_player.j = j;
+            }
+    return (pos_player);
 }
 
-char *open_read_file(char const *filepath)
-{
-    struct stat file;
-    int fd = open(filepath, O_RDONLY);
-    char *buff;
-    int status = 1;
-
-    stat(filepath, &file);
-    buff = malloc(sizeof(char) * file.st_size + 1);
-    status = read(fd, buff, file.st_size);
-    if (check_file_error(fd, status, file.st_size) != 0)
-        return (NULL);
-    buff[file.st_size] = '\0';
-    close(fd);
-    return (buff);
-}
-
-void display_map(char **array, char *buffer)
+void display_map(char **la_bitasse, char *buffer)
 {
     initscr();
-    for (int i = 0; i < nb_lines(buffer); i++) {
-        printw(array[i]);
-        printw("\n");
+    keypad(stdscr, TRUE);
+    while (1) {
+        clear();
+        for (int i = 0; i < nb_lines(buffer); i++) {
+            printw(la_bitasse[i]);
+            printw("\n");
+        }
+        la_bitasse = move_player(la_bitasse);
+        refresh();
     }
-    refresh();
-    while (getch() != ' ');
     endwin();
-
 }
-
+ void help(void)
+ {
+     my_putstr("USAGE\n     ./sokoban map\nDESCRIPTION\n");
+     my_putstr("     map file representing the warehouse map, ");
+     my_putstr("containing ‘#’ for walls,\n\t ‘P’ for the player, ");
+     my_putstr("‘X’ for boxes and ‘O’ for storage locations.\n");
+ }
 
 int main(int ac, char **av)
 {
@@ -68,6 +58,10 @@ int main(int ac, char **av)
 
     if (ac != 2)
         return (84);
+    if (ac == 2) {
+        if (av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
+            help();
+    }
     if (open_read_file(av[1]) == NULL)
         return (84);
     buffer = open_read_file(av[1]);
