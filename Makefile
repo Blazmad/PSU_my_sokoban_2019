@@ -7,6 +7,8 @@
 
 SRC	=	src/sokoban.c	\
 		src/my_str_to_word_array.c	\
+		src/open_file.c	\
+		src/move_player.c	\
 		lib/my/my_show_word_array.c	\
 		lib/my/my_putchar.c	\
 		lib/my/my_isneg.c	\

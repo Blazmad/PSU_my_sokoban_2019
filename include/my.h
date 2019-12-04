@@ -8,12 +8,7 @@
 #ifndef MY_H_
 #define MY_H_
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <ncurses.h>
+#include "sokoban.h"
 
 void my_putchar(char);
 int my_isneg(int);
@@ -46,8 +41,5 @@ int my_showmem(char const *, int);
 char *my_strcat(char *, char const *);
 char *my_strncat(char *, char const *, int);
 int my_show_word_array(char * const *);
-char **my_str_to_word_array(char const *str);
-int nb_char(char const *str);
-int nb_lines(char const *str);
 
 #endif
