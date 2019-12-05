@@ -40,7 +40,7 @@ char **my_str_to_word_array(char const *str)
     int k = 0;
     int lines = nb_lines(str);
     int nb_c = nb_char(str);
-    char **array = malloc(sizeof(char *) * lines + 2);
+    char **array = malloc(sizeof(char *) * lines + 1);
 
     for (int i = 0; i < lines; i++) {
         j = 0;

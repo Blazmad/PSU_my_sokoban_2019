@@ -11,8 +11,7 @@ char **move_player_up(char **array)
 {
     player_t pos = player_position(array);
 
-    if (array[pos.i - 1][pos.j] != '#' && array[pos.i - 1][pos.j] != 'X'
-        && array[pos.i - 1][pos.j] != 'O') {
+    if (array[pos.i - 1][pos.j] != '#' && array[pos.i - 1][pos.j] != 'X') {
         array[pos.i - 1][pos.j] = 'P';
         array[pos.i][pos.j] = ' ';
     }
@@ -29,8 +28,7 @@ char **move_player_down(char **array)
 {
     player_t pos = player_position(array);
 
-    if (array[pos.i + 1][pos.j] != '#' && array[pos.i + 1][pos.j] != 'X'
-        && array[pos.i + 1][pos.j] != 'O') {
+    if (array[pos.i + 1][pos.j] != '#' && array[pos.i + 1][pos.j] != 'X') {
         array[pos.i + 1][pos.j] = 'P';
         array[pos.i][pos.j] = ' ';
     }
@@ -47,8 +45,7 @@ char **move_player_left(char **array)
 {
     player_t pos = player_position(array);
 
-    if (array[pos.i][pos.j - 1] != '#' && array[pos.i][pos.j - 1] != 'X'
-        && array[pos.i][pos.j - 1] != 'O') {
+    if (array[pos.i][pos.j - 1] != '#' && array[pos.i][pos.j - 1] != 'X') {
         array[pos.i][pos.j - 1] = 'P';
         array[pos.i][pos.j] = ' ';
     }
@@ -65,8 +62,7 @@ char **move_player_right(char **array)
 {
     player_t pos = player_position(array);
 
-    if (array[pos.i][pos.j + 1] != '#' && array[pos.i][pos.j + 1] != 'X'
-        && array[pos.i][pos.j + 1] != 'O') {
+    if (array[pos.i][pos.j + 1] != '#' && array[pos.i][pos.j + 1] != 'X') {
         array[pos.i][pos.j + 1] = 'P';
         array[pos.i][pos.j] = ' ';
     }
@@ -79,11 +75,9 @@ char **move_player_right(char **array)
     return (array);
 }
 
-char **move_player(char **array)
+char **move_player(char **array, char *buffer)
 {
-    int mov = getch();
-
-    switch (mov) {
+    switch (getch()) {
     case KEY_UP:
         array = move_player_up(array);
         break;
@@ -95,6 +89,9 @@ char **move_player(char **array)
         break;
     case KEY_RIGHT:
         array = move_player_right(array);
+        break;
+    case ' ':
+        array = my_str_to_word_array(buffer);
         break;
     }
     return (array);
