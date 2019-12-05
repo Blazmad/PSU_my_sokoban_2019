@@ -7,11 +7,14 @@
 
 #include "my.h"
 
-void free_all(char *buffer, char **array)
+void free_all(char *buffer, char **array, char **map)
 {
     for (int i = 0; array[i]; i++)
         free(array[i]);
     free(array);
+    for (int i = 0; map[i]; i++)
+        free(map[i]);
+    free(map);
     free(buffer);
 }
 

@@ -27,6 +27,6 @@ int main(int ac, char **av)
     if (check_map(nbr) != 0)
         return (84);
     display_array(array, buffer, map, nbr);
-    free_all(buffer, array);
+    free_all(buffer, array, map);
     return (0);
 }
