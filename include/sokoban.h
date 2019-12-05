@@ -22,12 +22,29 @@ typedef struct player
     int j;
 }player_t;
 
+typedef struct number
+{
+    int o;
+    int x;
+}number_t;
+
+int check_file_error(int fd, int status, int size);
+char *open_read_file(char const *filepath);
 char **my_str_to_word_array(char const *str);
 int nb_char(char const *str);
 int nb_lines(char const *str);
-int check_file_error(int fd, int status, int size);
-char *open_read_file(char const *filepath);
-char **move_player(char **array);
+char **move_player(char **array, char *buffer);
+char **move_player_up(char **array);
+char **move_player_down(char **array);
+char **move_player_left(char **array);
+char **move_player_right(char **array);
+number_t numer_boxes(char **array);
+int check_win_lose(char **array, char **map);
+int check_map(number_t nbr);
+char **exam_o(char **array, char **map);
+void free_all(char *buffer, char **array);
+void display_array(char **array, char *buffer, char **map, number_t nbr);
+void help(char **av);
 player_t player_position(char **array);
 
 #endif

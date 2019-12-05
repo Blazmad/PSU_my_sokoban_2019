@@ -5,10 +5,12 @@
 ## Makefile
 ##
 
-SRC	=	src/sokoban.c	\
+SRC	=	main.c	\
 		src/my_str_to_word_array.c	\
 		src/open_file.c	\
 		src/move_player.c	\
+		src/win.c	\
+		src/display_map.c	\
 		lib/my/my_show_word_array.c	\
 		lib/my/my_putchar.c	\
 		lib/my/my_isneg.c	\
