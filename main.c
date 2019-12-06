@@ -24,7 +24,7 @@ int main(int ac, char **av)
     array = my_str_to_word_array(buffer);
     map = my_str_to_word_array(buffer);
     nbr = numer_boxes(array);
-    if (check_map(nbr) != 0)
+    if (check_map(nbr, map) != 0)
         return (84);
     display_array(array, buffer, map, nbr);
     free_all(buffer, array, map);

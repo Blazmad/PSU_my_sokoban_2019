@@ -31,8 +31,14 @@ int check_win_lose(char **array, char **map)
     return (count);
 }
 
-int check_map(number_t nbr)
+int check_map(number_t nbr, char **array)
 {
+    for (int i = 0; array[i]; i++)
+        for (int j = 0; array[i][j]; j++)
+            if (array[i][j] != 'O' && array[i][j] != 'X' && array[i][j] != 'P'
+                && array[i][j] != '#' && array[i][j] != '\n'
+                && array[i][j] != ' ')
+                return (1);
     if (nbr.o != nbr.x)
         return (1);
     return (0);

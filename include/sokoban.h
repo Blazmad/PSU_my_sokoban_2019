@@ -40,7 +40,7 @@ char **move_player_left(char **array);
 char **move_player_right(char **array);
 number_t numer_boxes(char **array);
 int check_win_lose(char **array, char **map);
-int check_map(number_t nbr);
+int check_map(number_t nbr, char **array);
 char **exam_o(char **array, char **map);
 void free_all(char *buffer, char **array, char **map);
 void display_array(char **array, char *buffer, char **map, number_t nbr);
