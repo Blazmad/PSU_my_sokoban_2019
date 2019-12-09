@@ -48,7 +48,7 @@ AR	=	ar rc
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	sokoban
+NAME	=	my_sokoban
 
 NAME2	=	libmy.a
 
