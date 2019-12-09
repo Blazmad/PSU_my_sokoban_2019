@@ -53,6 +53,6 @@ char **my_str_to_word_array(char const *str)
         array[i][j] = '\0';
         k++;
     }
-    array[lines] = '\0';
+    array[lines] = NULL;
     return (array);
 }
