@@ -10,14 +10,14 @@
 int nb_lines(char const *str)
 {
     int i = 0;
-    int l = 0;
+    int line = 0;
 
     while (str[i] != '\0') {
         if (str[i] == '\n')
-            l++;
+            line++;
         i++;
     }
-    return (l);
+    return (line);
 }
 
 int nb_char(char const *str)
