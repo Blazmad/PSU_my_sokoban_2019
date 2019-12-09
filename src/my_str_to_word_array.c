@@ -36,15 +36,15 @@ int nb_char(char const *str)
 
 char **my_str_to_word_array(char const *str)
 {
+    int i = 0;
     int j = 0;
     int k = 0;
     int lines = nb_lines(str);
-    int nb_c = nb_char(str);
-    char **array = malloc(sizeof(char *) * lines + 1);
+    char **array = malloc(sizeof(char *) * lines + 2);
 
-    for (int i = 0; i < lines; i++) {
+    while (i < lines) {
         j = 0;
-        array[i] = malloc(sizeof(char) * nb_c + 1);
+        array[i] = malloc(sizeof(char) * nb_char(str) + 1);
         while (str[k] != '\n') {
             array[i][j] = str[k];
             j++;
@@ -52,7 +52,8 @@ char **my_str_to_word_array(char const *str)
         }
         array[i][j] = '\0';
         k++;
+        i++;
     }
-    array[lines] = NULL;
+    array[i] = NULL;
     return (array);
 }
