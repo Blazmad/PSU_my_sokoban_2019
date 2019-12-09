@@ -41,7 +41,7 @@ void help(char **av)
     if (av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0') {
         my_putstr("USAGE\n     ./sokoban array\nDESCRIPTION\n");
         my_putstr("     array file representing the warehouse array, ");
-        my_putstr("containing ‘#’ for walls,\n\t   ‘P’ for the player, ");
+        my_putstr("containing ‘#’ for walls, \n\t   ‘P’ for the player, ");
         my_putstr("‘X’ for boxes and ‘O’ for storage locations.\n");
     }
 }
