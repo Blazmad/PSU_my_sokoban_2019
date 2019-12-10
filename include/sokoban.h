@@ -31,7 +31,7 @@ typedef struct number
 int check_file_error(int fd, int status, int size);
 char *open_read_file(char const *filepath);
 char **my_str_to_word_array(char const *str);
-int nb_char(char const *str);
+int nb_char(char const *str, int i);
 int nb_lines(char const *str);
 char **move_player(char **array, char *buffer);
 char **move_player_up(char **array);
