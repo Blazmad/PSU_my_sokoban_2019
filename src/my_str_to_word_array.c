@@ -39,7 +39,7 @@ char **my_str_to_word_array(char const *str)
     int j = 0;
     int k = 0;
     int lines = nb_lines(str);
-    char **array = malloc(sizeof(char *) * lines + 1);
+    char **array = malloc(sizeof(char *) * (lines + 1));
 
     while (i < lines) {
         array[i] = malloc(sizeof(char) * nb_char(str, k) + 1);
@@ -53,5 +53,6 @@ char **my_str_to_word_array(char const *str)
         i++;
         k++;
     }
+    array[i] = NULL;
     return (array);
 }
