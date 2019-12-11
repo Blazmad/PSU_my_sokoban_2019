@@ -22,7 +22,7 @@ number_t numer_boxes(char **array)
     return (nbr);
 }
 
-int check_win_lose(char **array, char **map)
+int check_win(char **array, char **map)
 {
     int count = 0;
 
