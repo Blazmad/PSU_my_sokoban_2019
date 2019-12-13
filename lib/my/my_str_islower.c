@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** my_str_islower
 ** File description:
-** returns 1 if the string passed as parameter only contains lowercase, 0 if not
+** returns 1 if the string passed as parameter only contains lowercase 0 if not
 */
 
 int my_str_islower(char const *str)
