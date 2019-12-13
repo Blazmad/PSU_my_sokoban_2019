@@ -25,7 +25,7 @@ void display_array(char **array, char *buffer, char **map, number_t nbr)
     curs_set(0);
     while (check_win(array, map) < nbr.o) {
         clear();
-        for (int i = 0; i < nb_lines(buffer); i++) {
+        for (int i = 0; array[i]; i++) {
             array = exam_o(array, map);
             printw(array[i]);
             printw("\n");
@@ -33,8 +33,8 @@ void display_array(char **array, char *buffer, char **map, number_t nbr)
         array = move_player(array, buffer);
         refresh();
     }
-    for (int i = 0; i < nb_lines(buffer); i++) {
-            array = exam_o(array, map);
+    array = exam_o(array, map);
+    for (int i = 0; array[i]; i++) {
             printw(array[i]);
             printw("\n");
     }
