@@ -40,7 +40,7 @@ SRC	=	main.c	\
 		lib/my/my_strstr.c	\
 		lib/my/my_strncat.c	\
 
-CC	=	gcc -W -Wall -Wextra -g3
+CC	=	gcc -W -Wall -Wextra -g3 -Os
 
 CFLAGS	=	-I./include/
 
